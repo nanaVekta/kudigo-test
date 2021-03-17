@@ -1,0 +1,93 @@
+<div class="row  justify-content-center mt-5">
+  <div class="col-sm-6 ">
+    <h2 class="text-center">Create an account</h2>
+    <div class="card shadow-sm mt-5">
+      <div class="card-body">
+        <form class="mt-4" role="form" [formGroup]="registerForm" (ngSubmit)="submitRegistration()">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>First name <span class="error">*</span></label>
+                <input class="form-control" formControlName="first_name" type="text" placeholder="Enter first name" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }">
+                <div class="validation-errors">
+                  <ng-container *ngFor="let validation of validation_messages.first_name" >
+                    <div class="error-message" *ngIf="registerForm.get('first_name').hasError(validation.type) && submitted && f.first_name.errors">
+                      {{ validation.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Last name <span class="error">*</span></label>
+                <input class="form-control" formControlName="last_name" type="text" placeholder="Enter last name" [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }">
+                <div class="validation-errors">
+                  <ng-container *ngFor="let validation of validation_messages.last_name" >
+                    <div class="error-message" *ngIf="registerForm.get('last_name').hasError(validation.type) && submitted && f.last_name.errors">
+                      {{ validation.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email <span class="error">*</span></label>
+            <input class="form-control" type="email" formControlName="email" placeholder="Enter email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.email" >
+                <div class="error-message" *ngIf="registerForm.get('email').hasError(validation.type) && submitted && f.email.errors">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Phone number <span class="error">*</span></label>
+            <input class="form-control" type="tel" formControlName="phone_number" placeholder="Enter phone number" [ngClass]="{ 'is-invalid': submitted && f.phone_number.errors }">
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.phone_number" >
+                <div class="error-message" *ngIf="registerForm.get('phone_number').hasError(validation.type) && submitted && f.phone_number.errors">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Password <span class="error">*</span></label>
+            <input class="form-control" type="password" formControlName="password" placeholder="Enter password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.password" >
+                <div class="error-message" *ngIf="registerForm.get('password').hasError(validation.type) && submitted && f.password.errors">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Confirm Password <span class="error">*</span></label>
+            <input class="form-control" type="password" formControlName="confirm_password" placeholder="Confirm password" [ngClass]="{ 'is-invalid': submitted && f.confirm_password.errors }">
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.confirm_password" >
+                <div class="error-message" *ngIf="registerForm.get('confirm_password').hasError(validation.type) && submitted && f.confirm_passwor02413.errors">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="submit" *ngIf="loading" class="btn btn-success btn-block my-4" disabled>creating account...</button>
+            <button type="submit" *ngIf="!loading" class="btn btn-success btn-block my-4" >Sign Up</button>
+
+          </div>
+          <div class="text-center">
+            <small>Already a member? Login <a href="#" [routerLink]="['/account/login']" routerLinkActive="router-link-active" >here</a></small>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,40 @@
+<div class="row  justify-content-center mt-5">
+  <div class="col-sm-5 ">
+    <h2 class="text-center">Welcome back</h2>
+    <div class="card shadow-sm mt-5">
+      <div class="card-body">
+        <form class="mt-4" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+          <div class="form-group">
+            <label>Email <span class="error">*</span></label>
+            <input class="form-control" type="email" formControlName="email" placeholder="Enter email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.email" >
+                <div class="error-message" *ngIf="loginForm.get('email').hasError(validation.type) && submitted && f.email.errors">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>          </div>
+          <div class="form-group">
+            <label>Password <span class="error">*</span></label>
+            <input class="form-control" type="password" formControlName="password" placeholder="Enter password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.password" >
+                <div class="error-message" *ngIf="loginForm.get('password').hasError(validation.type) && submitted && f.password.errors">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-success btn-block my-4" *ngIf="loading" disabled>processing...</button>
+            <button type="submit" class="btn btn-success btn-block my-4" *ngIf="!loading">Sign in</button>
+          </div>
+          <div class="text-center">
+            <small>Not a member? Sign up <a href="#" [routerLink]="['/account/signup']" routerLinkActive="router-link-active" >here</a></small>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+

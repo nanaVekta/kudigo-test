@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-12">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">
+          <img src="assets/img/logo.png" height="30" alt="">
+        </a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <button class="btn btn-success" (click)="logOut()">Log Out</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-4" *ngFor="let feed of feeds">
+        <div class="card mt-4">
+          <img [src]=feed.image class="card-img-top" [alt]=feed.title>
+          <div class="card-body">
+            <h5 class="card-title">{{feed.title}}</h5>
+            <div class="row">
+              <div class="col-4"><span style="color: green" class="fa fa-comment"></span> &nbsp; {{feed.num_of_comments}} </div>
+              <div class="col-4"><span style="color: blue" class="fa fa-retweet"></span> &nbsp; {{feed.num_of_shares}}</div>
+              <div class="col-4"><span style="color: red" class="fa fa-heart"></span> &nbsp; {{feed.num_of_likes}}</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
